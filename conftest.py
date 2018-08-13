@@ -60,6 +60,7 @@ def create_remote_driver(config):
     else:
         options = get_firefox_options(config)
     capabilities = {"version": config["version"],
+                    "acceptInsecureCerts": True,
                     "screenResolution": "1280x1024x24"}
     return webdriver.Remote(command_executor="http://{}:4444/wd/hub".format(config["hub"]),
                             options=options,
@@ -91,7 +92,6 @@ def driver(request, config):
     def tear_down():
         if request.node.rep_call.failed:
             allure.attach(driver.get_screenshot_as_png(), attachment_type=allure.attachment_type.PNG)
-
         driver.quit()
 
     request.addfinalizer(tear_down)

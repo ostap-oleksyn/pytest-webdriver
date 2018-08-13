@@ -1,5 +1,5 @@
-pytest==3.6.4
+selenium==3.13.0
 webdriver-manager==1.7
-selenium==3.14.0
-allure-pytest==2.5.0
+pytest==3.6.4
 pytest-xdist==1.22.5
+allure-pytest==2.5.0
